@@ -13,11 +13,11 @@ def gen_ui(world, player):
 	# Combine world and master strings
 	full_string = build_final_string(world_string, ui_string)
 
-	# # Clear terminal to make room for the map
-	# if os.name == 'nt':
-	# 	os.system('cls')
-	# else:
-	# 	os.system('clear')
+	# Clear terminal to make room for the map
+	if os.name == 'nt':
+		os.system('cls')
+	else:
+		os.system('clear')
 
 	return full_string
 

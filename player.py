@@ -16,14 +16,13 @@ class Player(object):
         if direction == "N":
             world.get_map((x-amount, y))
             for i in range(x-amount, x):
-                print(i)
                 if world.cellmap[i][y]:
                     return False
             self.position[0] -= amount
             return True
         elif direction == "E":
             world.get_map((x, y+amount))
-            for i in range(y, y+amount):
+            for i in range(y, y+amount+1):
                 if world.cellmap[x][i]:
                     return False
             self.position[1] += amount
@@ -31,7 +30,6 @@ class Player(object):
         elif direction == "S":
             world.get_map((x+amount, y))
             for i in range(x, x+amount+1):
-                print(i)
                 if world.cellmap[i][y]:
                     return False
             self.position[0] += amount

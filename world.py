@@ -95,6 +95,8 @@ class Map(object):
 		# print(datetime.datetime.now()-start)
 
 	def generate_world_string(self, playerPos):
+		playerPos[0] = playerPos[0] % self.shape[0]
+		playerPos[1] = playerPos[1] % self.shape[1]
 		world_string = ""
 		for i in range(int(len(self.cellmap))):
 			for j in range(int(len(self.cellmap[i]))):
@@ -109,6 +111,7 @@ class Map(object):
 		return world_string
 
 	def get_map(self, position):
+		position = position[::-1]
 		if position[0] >= 0:
 			nearest_x = int(round(position[0] / float(self.shape[0])) * self.shape[0])
 		else:
